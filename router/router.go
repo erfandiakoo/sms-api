@@ -1,6 +1,7 @@
 package router
 
 import (
+	"github.com/erfandiakoo/sms-api/handler"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -10,10 +11,7 @@ func SetupRoutes(app *fiber.App) {
 		return ctx.JSON("It Works!")
 	})
 
-	// challenge := api.Group("/challenge")
-	// challenge.Post("/login", handler.Login)
-	// challenge.Post("/config", handler.Config)
-
-	// ipg := api.Group("/ipg")
-	// ipg.Post("/generate", handler.GenerateUrl)
+	req := api.Group("/api")
+	req.Post("/send", handler.SendSMS)
+	req.Post("/config", handler.Config)
 }

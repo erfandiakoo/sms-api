@@ -6,9 +6,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"strconv"
+	"time"
 
 	"github.com/erfandiakoo/sms-api/config"
+	"github.com/spf13/viper"
 )
 
 func SMSIRmakeRequest(jsonData map[string]string, op string) {
@@ -22,15 +23,14 @@ func SMSIRmakeRequest(jsonData map[string]string, op string) {
 		fmt.Println(string(data))
 	}
 }
-func SMSIRSendSMS(username string, password string, to string, from string, text string, isFlash bool) {
+func SMSIRSendSMS(messages string, mobile string) {
 
 	jsonData := map[string]string{
-		"username": username,
-		"password": password,
-		"to":       to,
-		"from":     from,
-		"text":     text,
-		"isFlash":  strconv.FormatBool(isFlash),
+		"Messages":                 messages,
+		"MobileNumbers":            mobile,
+		"LineNumber":               viper.GetString("kavenegar_api"),
+		"SendDateTime":             time.Now().String(),
+		"CanContinueInCaseOfError": "false",
 	}
 	MelimakeRequest(jsonData, "MessageSend")
 }

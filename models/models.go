@@ -16,6 +16,10 @@ type MeliRequestModel struct {
 	Message  string `json:"message"`
 	Receptor string `json:"receptor"`
 }
+type SMSRequestModel struct {
+	Message  string `json:"message"`
+	Receptor string `json:"receptor"`
+}
 
 type MediaRequestModel struct {
 }

@@ -9,6 +9,7 @@ import (
 	"strconv"
 
 	"github.com/erfandiakoo/sms-api/config"
+	"github.com/spf13/viper"
 )
 
 func MelimakeRequest(jsonData map[string]string, op string) {
@@ -22,22 +23,22 @@ func MelimakeRequest(jsonData map[string]string, op string) {
 		fmt.Println(string(data))
 	}
 }
-func MeliSendSMS(username string, password string, to string, from string, text string, isFlash bool) {
+func MeliSendSMS(to string, text string) {
 
 	jsonData := map[string]string{
-		"username": username,
-		"password": password,
+		"username": viper.GetString("kavenegar_api"),
+		"password": viper.GetString("kavenegar_api"),
 		"to":       to,
-		"from":     from,
+		"from":     viper.GetString("kavenegar_api"),
 		"text":     text,
-		"isFlash":  strconv.FormatBool(isFlash),
+		"isFlash":  strconv.FormatBool(false),
 	}
 	MelimakeRequest(jsonData, "SendSMS")
 }
 func MeliGetCredit(username string, password string) {
 	jsonData := map[string]string{
-		"UserName": username,
-		"PassWord": password,
+		"UserName": viper.GetString("kavenegar_api"),
+		"PassWord": viper.GetString("kavenegar_api"),
 	}
 	MelimakeRequest(jsonData, "GetCredit")
 }
