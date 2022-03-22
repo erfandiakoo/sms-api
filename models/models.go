@@ -1,5 +1,12 @@
 package models
 
+type ConfigModel struct {
+	MelipayamakUsername string `json:"mp_username"`
+	MelipayamakPasswd   string `json:"mp_passwd"`
+	MelipayamakNum      string `json:"mp_number"`
+	KaveNegarApi        string `json:"kavenegar_api"`
+	KaveNegarSender     string `json:"kavenegar_sender"`
+}
 type KaveRequestModel struct {
 	Message  string `json:"message"`
 	Receptor string `json:"receptor"`

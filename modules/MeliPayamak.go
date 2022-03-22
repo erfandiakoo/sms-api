@@ -7,12 +7,14 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strconv"
+
+	"github.com/erfandiakoo/sms-api/config"
 )
 
 func MelimakeRequest(jsonData map[string]string, op string) {
 
 	jsonValue, _ := json.Marshal(jsonData)
-	response, err := http.Post("https://rest.payamak-panel.com/api/SendSMS/"+op, "application/json", bytes.NewBuffer(jsonValue))
+	response, err := http.Post(config.MeliPayamakUrl+op, "application/json", bytes.NewBuffer(jsonValue))
 	if err != nil {
 		fmt.Printf("The HTTP request failed with error %s\n", err)
 	} else {

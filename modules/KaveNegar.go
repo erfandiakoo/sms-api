@@ -4,15 +4,13 @@ import (
 	"log"
 
 	"github.com/kavenegar/kavenegar-go"
+	"github.com/spf13/viper"
 )
 
 func KaveSendSMS(message string, receptor []string) {
-	// key := viper.GetString("kavenegar_api")
-	// api := kavenegar.New(key)
-	// sender := viper.GetString("kavenegar_sender")
-
-	api := kavenegar.New(" your apikey ")
-	sender := ""
+	key := viper.GetString("kavenegar_api")
+	api := kavenegar.New(key)
+	sender := viper.GetString("kavenegar_sender")
 	if res, err := api.Message.Send(sender, receptor, message, nil); err != nil {
 		switch err := err.(type) {
 		case *kavenegar.APIError:
