@@ -1,7 +1,24 @@
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/erfandiakoo/sms-api/router"
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+)
 
 func main() {
-	fmt.Println("Hello World!")
+	app := fiber.New(fiber.Config{Prefork: false})
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: "*",
+		AllowMethods: "GET,POST,Head,Put,DELETE,PATH",
+		AllowHeaders: "",
+	}))
+
+	router.SetupRoutes(app)
+	err := app.Listen(":8000")
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
