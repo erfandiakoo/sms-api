@@ -8,7 +8,6 @@ const (
 )
 
 const (
-	MeliPayamakUrl  = "https://rest.payamak-panel.com/api/SendSMS/"
-	SMSIRUrl        = "http://RestfulSms.com/api/"
-	MediaPayamakUrl = "http://payamak-service.ir/"
+	MeliPayamakUrl = "https://rest.payamak-panel.com/api/SendSMS/"
+	SMSIRUrl       = "http://RestfulSms.com/api/"
 )

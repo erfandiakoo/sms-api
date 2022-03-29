@@ -20,7 +20,6 @@ func main() {
 		AllowHeaders: "",
 	}))
 
-	// Or extend your config for customization
 	app.Use(basicauth.New(basicauth.Config{
 		Users: map[string]string{
 			"Erfan": "Diakoo",

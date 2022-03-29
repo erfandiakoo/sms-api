@@ -11,7 +11,7 @@ func SetupRoutes(app *fiber.App) {
 		return ctx.JSON("It Works!")
 	})
 
-	req := api.Group("/api")
+	req := api.Group("/api/v1")
 	req.Post("/send", handler.SendSMS)
 	req.Post("/config", handler.Config)
 }

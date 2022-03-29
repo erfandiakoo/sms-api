@@ -8,8 +8,11 @@ require (
 	github.com/spf13/viper v1.10.1
 )
 
+require golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
+
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
+	github.com/basgys/goxml2json v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/klauspost/compress v1.15.0 // indirect

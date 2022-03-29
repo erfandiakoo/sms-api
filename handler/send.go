@@ -27,7 +27,8 @@ func SendSMS(c *fiber.Ctx) error {
 	modules.KaveSendSMS(Input.Message, strings.Split(Input.Receptor, ""))
 	//MeliPayamak
 	modules.MeliSendSMS(Input.Receptor, Input.Message)
-	//SMS IR
+	//SMSIR
+	modules.SMSIRSendSMS(Input.Message, Input.Receptor)
 
 	return c.JSON(models.ResponseModel{
 		Data:    nil,
